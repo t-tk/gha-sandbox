@@ -1,11 +1,13 @@
 #!/bin/sh -vx
 
-bin=${bin:-.}
-exe=${exe:-}
-_gha_sb=$bin/gha_sb$exe
+bindir=${bindir:-.}
+exeext=${exeext:-}
+srcdir=${srcdir:-.}
+_gha_sb=$bindir/gha_sb$exeext
 
+rm -f out.txt
 
 $_gha_sb > out.txt
-diff gha_sb.txt out.txt || exit 1
+diff $srcdir/gha_sb.txt out.txt || exit 1
 
 exit 0
