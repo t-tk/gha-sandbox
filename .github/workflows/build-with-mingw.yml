@@ -22,6 +22,7 @@ jobs:
           mkdir ./Work
           cd ./Work
           ../source/configure
+          cat config.log
           make
           echo "make: done"
       - name: test
