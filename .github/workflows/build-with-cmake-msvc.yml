@@ -30,4 +30,6 @@ jobs:
           cd ./Work
           export bindir=./Debug/bin exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
+        env:
+          TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."

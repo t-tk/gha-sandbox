@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #ifdef HAVE_CONFIG_H
@@ -43,6 +44,12 @@ int main(int argc, char **argv){
   if (argc>1 && strcmp(argv[1],"--version")==0) {
     printf("package_version: %s\n", PACKAGE_VERSION);
     printf("implementation: %s\n", IMPLEMENTATION);
+    return 0;
+  }
+
+  if (argc>1 && strcmp(argv[1],"--printenv")==0) {
+    char *var = getenv("TESTENV");
+    printf("env TESTENV: %s\n", var ? var : "()");
     return 0;
   }
 

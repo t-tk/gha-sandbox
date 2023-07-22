@@ -5,6 +5,7 @@ on:
     branches:
       - 'master'
       - 'work*'
+      - 'build/*'
 jobs:
   Build-via-autotools:
     strategy:
@@ -28,5 +29,10 @@ jobs:
           cat config.log
           make
           echo "make: done"
+      - name: test
+        shell: bash
+        run: |
           make check
+        env:
+          TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."
