@@ -13,6 +13,7 @@ fi
 
 rm -f out.txt
 
+$_gha_sb --version
 $_gha_sb > out.txt
 md5sum $srcdir/testdata/gha_sb.txt out.txt
 $DIFF $srcdir/testdata/gha_sb.txt out.txt || exit 1
