@@ -16,6 +16,9 @@
 # else
 #  define IMPLEMENTATION            "Unknown C/C++ for Win32"
 # endif                         /* _MSC_VER */
+#define WRITE_MODE "wb"
+#else
+#define WRITE_MODE "w"
 #endif
 
 #ifdef  UNIX
@@ -30,6 +33,9 @@
 
 int main(int argc, char **argv){
 
+    char *name;
+    FILE *fp;
+
 #ifdef WIN32
   _setmode (fileno(stdout), _O_BINARY);
 #endif
@@ -40,7 +46,17 @@ int main(int argc, char **argv){
     return 0;
   }
 
-  printf("this is test.\n");
+  if (argc>1) {
+    name = argv[1];
+    fp = fopen(name, WRITE_MODE);
+    if (fp == NULL) {
+      fprintf(stderr, "cannot open file %s\n", name);
+      return 16;
+    }
+  } else {
+    fp = stdout;
+  }
+  fprintf(fp, "this is test.\n");
 
   return 0;
 }

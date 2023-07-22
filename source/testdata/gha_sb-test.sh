@@ -11,11 +11,12 @@ $DIFF --strip-trailing-cr $0 $0 \
   && DIFF="diff --strip-trailing-cr" || echo "failed to set --strip-trailing-cr for diff"
 fi
 
-rm -f out.txt
+rm -f ofile.txt out.txt
 
 $_gha_sb --version
+$_gha_sb ofile.txt
 $_gha_sb > out.txt
-md5sum $srcdir/testdata/gha_sb.txt out.txt
+md5sum $srcdir/testdata/gha_sb.txt ofile.txt out.txt
 $DIFF $srcdir/testdata/gha_sb.txt out.txt || exit 1
 
 exit 0
