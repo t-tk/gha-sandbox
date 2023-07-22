@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <getopt.h>
+#include <string.h>
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -29,30 +29,15 @@
 #endif
 
 int main(int argc, char **argv){
-  int opt, longindex;
 
 #ifdef WIN32
   _setmode (fileno(stdout), _O_BINARY);
 #endif
 
-  struct option longopts[] = {
-      { "help",    no_argument,      NULL, 'h' },
-      { "version", no_argument,      NULL, 'v' },
-      { 0,         0,                0,     0  },
-  };
-
-  while ((opt = getopt_long_only(argc, argv, "hv", longopts, &longindex)) != -1) {
-    //    printf("%d %s\n", longindex, longopts[longindex].name);
-    switch (opt) {
-      case 'h':
-      case 'v':
-        printf("package_version: %s\n", PACKAGE_VERSION);
-        printf("implementation: %s\n", IMPLEMENTATION);
-        return 0;
-      default:
-        printf("unknown option\n");
-        return 1;
-    }
+  if (argc>1 && strcmp(argv[1],"--version")==0) {
+    printf("package_version: %s\n", PACKAGE_VERSION);
+    printf("implementation: %s\n", IMPLEMENTATION);
+    return 0;
   }
 
   printf("this is test.\n");
