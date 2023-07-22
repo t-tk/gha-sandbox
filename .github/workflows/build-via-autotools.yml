@@ -1,9 +1,16 @@
 name: Build via autotools
 run-name: ${{ github.actor }} is building and testing via autotools
-on: [push]
+on:
+  push:
+    branches:
+      - 'master'
+      - 'work*'
 jobs:
   Build-via-autotools:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -11,6 +18,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: configure & make
+        shell: bash
         run: |
           ls ${{ github.workspace }}
           mkdir ./Work
