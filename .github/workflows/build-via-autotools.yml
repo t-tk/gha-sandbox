@@ -32,6 +32,7 @@ jobs:
       - name: test
         shell: bash
         run: |
+          cd ./Work
           make check
         env:
           TESTENV: "foo:bar; baz"
