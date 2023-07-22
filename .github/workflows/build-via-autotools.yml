@@ -20,10 +20,11 @@ jobs:
       - name: configure & make
         shell: bash
         run: |
-          ls ${{ github.workspace }}
+          pwd
+          ls .
           mkdir ./Work
           cd ./Work
           ../source/configure
           make
           make check
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "⛄ This job's status is ${{ job.status }}."
