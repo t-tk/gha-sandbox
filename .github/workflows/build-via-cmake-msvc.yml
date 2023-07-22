@@ -1,4 +1,4 @@
-name: Build via autotools
+name: Build via Cmake & MSVC
 run-name: ${{ github.actor }} is building and testing via autotools
 on: [push]
 jobs:
@@ -13,6 +13,7 @@ jobs:
       - name: cmake & cmake --build
         shell: pwsh
         run: |
+          python3 --version
           mkdir .\Work
           cd .\Work
           cmake.exe ..
@@ -21,7 +22,8 @@ jobs:
       - name: test
         shell: bash
         run: |
+          pwd
           cd ./Work
-          export bindir=./Debug/bin exeext=.ext srcdir=../source
+          export bindir=./Debug/bin exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
       - run: echo "🍏 This job's status is ${{ job.status }}."
