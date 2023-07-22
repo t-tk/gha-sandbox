@@ -1,5 +1,5 @@
-name: Build via autotools
-run-name: ${{ github.actor }} is building and testing via autotools
+name: Build with mingw
+run-name: ${{ github.actor }} is building and testing with mingw
 on:
   push:
     branches:
@@ -7,10 +7,7 @@ on:
       - 'work*'
 jobs:
   Build-via-autotools:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -27,5 +24,11 @@ jobs:
           ../source/configure
           make
           echo "make: done"
-          make check
+      - name: test
+        shell: bash
+        run: |
+          pwd
+          cd ./Work
+          export bindir=. exeext=.exe srcdir=../source
+          $srcdir/testdata/gha_sb-test.sh
       - run: echo "⛄ This job's status is ${{ job.status }}."
