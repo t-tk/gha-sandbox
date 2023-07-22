@@ -8,6 +8,6 @@ _gha_sb=$bindir/gha_sb$exeext
 rm -f out.txt
 
 $_gha_sb > out.txt
-diff $srcdir/testdata/gha_sb.txt out.txt || exit 1
+diff --strip-trailing-cr $srcdir/testdata/gha_sb.txt out.txt || exit 1
 
 exit 0
