@@ -18,6 +18,15 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: check version of tools
+        shell: bash
+        run: |
+          bash --version
+          gcc --version
+          perl --version
+          python --version
+          python3 --version
+          ruby --version
       - name: configure & make
         shell: bash
         run: |
