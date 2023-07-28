@@ -38,7 +38,8 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          ICU_PREFIX=`find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h\$//'`
+          find /usr -name icudataver.h 2> /dev/null
+          ICU_PREFIX=`find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'`
           echo "ICU_PREFIX: " $ICU_PREFIX
           ls -lR $ICU_PREFIX/include
           ls -lR $ICU_PREFIX/lib
