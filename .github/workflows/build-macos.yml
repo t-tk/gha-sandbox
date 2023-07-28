@@ -38,8 +38,9 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          CFLAGS=-I/usr/local/opt/icu4c/include LDFLAGS=-L/usr/local/opt/icu4c/lib gcc -o gha_sb -licuuc
+          gcc -o gha_sb ../source/gha_sb.c
           echo "make: done"
+#          CFLAGS=-I/usr/local/opt/icu4c/include LDFLAGS=-L/usr/local/opt/icu4c/lib gcc -o gha_sb -licuuc
       - name: test
         shell: bash
         run: |
