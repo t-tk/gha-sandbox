@@ -40,6 +40,7 @@ jobs:
           cd ./Work
           ls -lR /usr/local/Cellar/icu4c/73.2/include
           ls -lR /usr/local/Cellar/icu4c/73.2/lib
+          CFLAGS=-I/usr/local/Cellar/icu4c/73.2/include LDFLAGS=-L/usr/local/Cellar/icu4c/73.2/lib gcc -o gha_sb ../source/gha_sb.c -licuuc
 #          ../source/configure
 #          make
 #          echo "make: done"
