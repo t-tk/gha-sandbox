@@ -4293,6 +4293,12 @@ then :
   printf "%s\n" "#define HAVE_UNICODE_UTYPES_H 1" >>confdefs.h
 
 fi
+ac_fn_c_check_header_compile "$LINENO" "icu.h" "ac_cv_header_icu_h" "$ac_includes_default"
+if test "x$ac_cv_header_icu_h" = xyes
+then :
+  printf "%s\n" "#define HAVE_ICU_H 1" >>confdefs.h
+
+fi
 
 #AC_CHECK_LIB(icuuc, [u_getVersion_73, u_versionToString_73])
 #AC_CHECK_LIB(icuuc, [u_getVersion_72, u_versionToString_72])
@@ -4534,7 +4540,131 @@ then :
 
 else $as_nop
 
-    as_fn_error $? "Unable to find icuuc, make sure ICU is installed." "$LINENO" 5
+    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
+printf %s "checking for library containing u_getVersion_69... " >&6; }
+if test ${ac_cv_search_u_getVersion_69+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  ac_func_search_save_LIBS=$LIBS
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+char u_getVersion_69 ();
+int
+main (void)
+{
+return u_getVersion_69 ();
+  ;
+  return 0;
+}
+_ACEOF
+for ac_lib in '' icuuc
+do
+  if test -z "$ac_lib"; then
+    ac_res="none required"
+  else
+    ac_res=-l$ac_lib
+    LIBS="-l$ac_lib  $ac_func_search_save_LIBS"
+  fi
+  if ac_fn_c_try_link "$LINENO"
+then :
+  ac_cv_search_u_getVersion_69=$ac_res
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext
+  if test ${ac_cv_search_u_getVersion_69+y}
+then :
+  break
+fi
+done
+if test ${ac_cv_search_u_getVersion_69+y}
+then :
+
+else $as_nop
+  ac_cv_search_u_getVersion_69=no
+fi
+rm conftest.$ac_ext
+LIBS=$ac_func_search_save_LIBS
+fi
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_search_u_getVersion_69" >&5
+printf "%s\n" "$ac_cv_search_u_getVersion_69" >&6; }
+ac_res=$ac_cv_search_u_getVersion_69
+if test "$ac_res" != no
+then :
+  test "$ac_res" = "none required" || LIBS="$ac_res $LIBS"
+
+else $as_nop
+
+     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
+printf %s "checking for library containing u_getVersion_69... " >&6; }
+if test ${ac_cv_search_u_getVersion_69+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  ac_func_search_save_LIBS=$LIBS
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+char u_getVersion_69 ();
+int
+main (void)
+{
+return u_getVersion_69 ();
+  ;
+  return 0;
+}
+_ACEOF
+for ac_lib in '' icu
+do
+  if test -z "$ac_lib"; then
+    ac_res="none required"
+  else
+    ac_res=-l$ac_lib
+    LIBS="-l$ac_lib  $ac_func_search_save_LIBS"
+  fi
+  if ac_fn_c_try_link "$LINENO"
+then :
+  ac_cv_search_u_getVersion_69=$ac_res
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext
+  if test ${ac_cv_search_u_getVersion_69+y}
+then :
+  break
+fi
+done
+if test ${ac_cv_search_u_getVersion_69+y}
+then :
+
+else $as_nop
+  ac_cv_search_u_getVersion_69=no
+fi
+rm conftest.$ac_ext
+LIBS=$ac_func_search_save_LIBS
+fi
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_search_u_getVersion_69" >&5
+printf "%s\n" "$ac_cv_search_u_getVersion_69" >&6; }
+ac_res=$ac_cv_search_u_getVersion_69
+if test "$ac_res" != no
+then :
+  test "$ac_res" = "none required" || LIBS="$ac_res $LIBS"
+
+else $as_nop
+
+      as_fn_error $? "Unable to find icuuc, make sure ICU is installed." "$LINENO" 5
+
+fi
+
+
+fi
+
 
 fi
 

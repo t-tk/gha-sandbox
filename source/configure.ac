@@ -20,7 +20,7 @@ AC_PROG_INSTALL
 
 # Checks for library functions.
 
-AC_CHECK_HEADERS([unicode/uversion.h unicode/utypes.h])
+AC_CHECK_HEADERS([unicode/uversion.h unicode/utypes.h icu.h])
 #AC_CHECK_LIB(icuuc, [u_getVersion_73, u_versionToString_73])
 #AC_CHECK_LIB(icuuc, [u_getVersion_72, u_versionToString_72])
 #AC_CHECK_LIB(icuuc, [u_getVersion_71, u_versionToString_71])
@@ -29,7 +29,11 @@ AC_SEARCH_LIBS([u_getVersion_73],[icuuc],[],[
  AC_SEARCH_LIBS([u_getVersion_72],[icuuc],[],[
   AC_SEARCH_LIBS([u_getVersion_71],[icuuc],[],[
    AC_SEARCH_LIBS([u_getVersion_70],[icuuc],[],[
-    AC_MSG_ERROR([Unable to find icuuc, make sure ICU is installed.])
+    AC_SEARCH_LIBS([u_getVersion_69],[icuuc],[],[
+     AC_SEARCH_LIBS([u_getVersion_69],[icu],[],[
+      AC_MSG_ERROR([Unable to find icuuc, make sure ICU is installed.])
+     ])
+    ])
    ])
   ])
  ])
