@@ -42,9 +42,12 @@ jobs:
           ls -lR /usr/local/Cellar/icu4c/73.2/lib
           PKG_CONFIG_PATH=/usr/local/Cellar/icu4c/73.2/lib/pkgconfig pkg-config --libs --cflags icu-uc icu-io
           gcc -o gha_sb ../source/gha_sb.c -I/usr/local/Cellar/icu4c/73.2/include -L/usr/local/Cellar/icu4c/73.2/lib -licuio -licui18n -licuuc -licudata
-#          ../source/configure
-#          make
-#          echo "make: done"
+          ./gha_sb --version
+          ./gha_sb --icuversion
+          ./gha_sb
+          ../source/configure CFLAGS=-I/usr/local/Cellar/icu4c/73.2/include LDFLAGS=-L/usr/local/Cellar/icu4c/73.2/lib
+          make
+          echo "make: done"
 #          gcc -o gha_sb ../source/gha_sb.c
 #          CFLAGS=-I/usr/local/opt/icu4c/include LDFLAGS=-L/usr/local/opt/icu4c/lib gcc -o gha_sb -licuuc
       - name: test
