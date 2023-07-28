@@ -38,9 +38,11 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          ../source/configure
-          make
-          echo "make: done"
+          find /usr -name uversion.h
+          find /usr -name libicuuc.a
+#          ../source/configure
+#          make
+#          echo "make: done"
 #          gcc -o gha_sb ../source/gha_sb.c
 #          CFLAGS=-I/usr/local/opt/icu4c/include LDFLAGS=-L/usr/local/opt/icu4c/lib gcc -o gha_sb -licuuc
       - name: test
