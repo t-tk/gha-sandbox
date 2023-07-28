@@ -1,0 +1,52 @@
+name: Build on MACOS
+run-name: ${{ github.actor }} is building and testing on macos
+on:
+  push:
+    branches:
+      - 'master'
+      - 'work*'
+      - 'build/*'
+jobs:
+  Build-via-autotools:
+    strategy:
+      matrix:
+        os: [macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: check version of tools
+        shell: bash
+        run: |
+          bash --version
+          gcc --version
+          perl --version
+          python --version
+          python3 --version
+          ruby --version
+      - name: brew
+        shell: bash
+        run: |
+          brew install icu4c
+      - name: configure & make
+        shell: bash
+        run: |
+          pwd
+          ls .
+          mkdir ./Work
+          cd ./Work
+          gcc -o gha_sb gha_sb.c -licuuc
+          echo "make: done"
+      - name: test
+        shell: bash
+        run: |
+          cd ./Work
+          ./gha_sb --version
+          ./gha_sb --icuversion
+          make check
+        env:
+          TESTENV: "foo:bar; baz"
+      - run: echo "⛄ This job's status is ${{ job.status }}."
