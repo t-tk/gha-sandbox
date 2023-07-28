@@ -39,8 +39,9 @@ jobs:
           mkdir ./Work
           cd ./Work
           ls -lR /usr/local/Cellar/icu4c/73.2/include
-          ls -lR /usr/local/Cellar/icu4c/73.2/lib/icu
-          CFLAGS=-I/usr/local/Cellar/icu4c/73.2/include LDFLAGS=-L/usr/local/Cellar/icu4c/73.2/lib/icu gcc -o gha_sb ../source/gha_sb.c -licuuc
+          ls -lR /usr/local/Cellar/icu4c/73.2/lib
+          PKG_CONFIG_PATH=/usr/local/Cellar/icu4c/73.2/lib/pkgconfig pkg-config --libs --cflags icu-uc icu-io
+          PKG_CONFIG_PATH=/usr/local/Cellar/icu4c/73.2/lib/pkgconfig gcc -o gha_sb ../source/gha_sb.c `pkg-config --libs --cflags icu-uc icu-io`
 #          ../source/configure
 #          make
 #          echo "make: done"
