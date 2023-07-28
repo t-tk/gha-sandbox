@@ -39,6 +39,8 @@ jobs:
           mkdir ./Work
           cd ./Work
           find /usr -name uversion.h
+          ls -lR /usr/local/Cellar/icu4c/73.2/include
+          ls -lR /usr/local/Cellar/icu4c/73.2/lib
           find /usr -name libicuuc.a
 #          ../source/configure
 #          make
