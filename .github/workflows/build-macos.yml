@@ -41,7 +41,8 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           find /usr/local -name icudataver.h
           find /usr -name icudataver.h 2> /dev/null
-          find /usr -name icudataver.h 2> /dev/null| sed -e 's/\/include\/unicode\/icudataver.h//'
+          find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'
+          find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'
           ICU_PREFIX = `find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "1: " $ICU_PREFIX
           ICU_PREFIX = `find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "2: " $ICU_PREFIX
           # ICU_PREFIX=`find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`
