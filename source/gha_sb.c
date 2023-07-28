@@ -9,6 +9,17 @@
 #include <fcntl.h>
 #endif
 
+#if defined(WIN32) && defined(WITH_SYSTEM_ICU)
+#include <icu.h>
+#else
+#include <unicode/uversion.h>
+#include <unicode/utypes.h>
+#endif
+
+#ifndef PACKAGE_VERSION
+#define PACKAGE_VERSION "v0.00"
+#endif
+
 #ifdef WIN32
 # ifdef _MSC_VER
 #  define IMPLEMENTATION            "Microsoft(R) C/C++ for Win32"
@@ -50,6 +61,15 @@ int main(int argc, char **argv){
   if (argc>1 && strcmp(argv[1],"--printenv")==0) {
     char *var = getenv("TESTENV");
     printf("env TESTENV: %s\n", var ? var : "()");
+    return 0;
+  }
+
+  if (argc>1 && strcmp(argv[1],"--icuversion")==0) {
+    UVersionInfo icuVersion;
+    char icu_version[U_MAX_VERSION_STRING_LENGTH] = "";
+    u_getVersion(icuVersion);
+    u_versionToString(icuVersion, icu_version);
+    printf("Compiled with:  ICU version %s\n", icu_version);
     return 0;
   }
 

@@ -42,6 +42,8 @@ jobs:
         shell: bash
         run: |
           cd ./Work
+          ./gha_sb --version
+          ./gha_sb --icuversion
           make check
         env:
           TESTENV: "foo:bar; baz"

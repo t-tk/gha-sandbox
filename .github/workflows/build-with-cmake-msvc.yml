@@ -37,6 +37,8 @@ jobs:
         run: |
           pwd
           cd ./Work
+          ./gha_sb.exe --version
+          ./gha_sb.exe --icuversion
           export bindir=./Debug/bin exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
         env:
