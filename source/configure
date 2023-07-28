@@ -4304,9 +4304,9 @@ fi
 #AC_CHECK_LIB(icuuc, [u_getVersion_72, u_versionToString_72])
 #AC_CHECK_LIB(icuuc, [u_getVersion_71, u_versionToString_71])
 #AC_CHECK_LIB(icuuc, [u_getVersion_70, u_versionToString_70])
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion" >&5
-printf %s "checking for library containing u_getVersion... " >&6; }
-if test ${ac_cv_search_u_getVersion+y}
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing _u_getVersion" >&5
+printf %s "checking for library containing _u_getVersion... " >&6; }
+if test ${ac_cv_search__u_getVersion+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
@@ -4317,11 +4317,11 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* Override any GCC internal prototype to avoid an error.
    Use char because int might match the return type of a GCC
    builtin and then its argument prototype would still apply.  */
-char u_getVersion ();
+char _u_getVersion ();
 int
 main (void)
 {
-return u_getVersion ();
+return _u_getVersion ();
   ;
   return 0;
 }
@@ -4336,27 +4336,27 @@ do
   fi
   if ac_fn_c_try_link "$LINENO"
 then :
-  ac_cv_search_u_getVersion=$ac_res
+  ac_cv_search__u_getVersion=$ac_res
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.beam \
     conftest$ac_exeext
-  if test ${ac_cv_search_u_getVersion+y}
+  if test ${ac_cv_search__u_getVersion+y}
 then :
   break
 fi
 done
-if test ${ac_cv_search_u_getVersion+y}
+if test ${ac_cv_search__u_getVersion+y}
 then :
 
 else $as_nop
-  ac_cv_search_u_getVersion=no
+  ac_cv_search__u_getVersion=no
 fi
 rm conftest.$ac_ext
 LIBS=$ac_func_search_save_LIBS
 fi
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_search_u_getVersion" >&5
-printf "%s\n" "$ac_cv_search_u_getVersion" >&6; }
-ac_res=$ac_cv_search_u_getVersion
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_search__u_getVersion" >&5
+printf "%s\n" "$ac_cv_search__u_getVersion" >&6; }
+ac_res=$ac_cv_search__u_getVersion
 if test "$ac_res" != no
 then :
   test "$ac_res" = "none required" || LIBS="$ac_res $LIBS"
