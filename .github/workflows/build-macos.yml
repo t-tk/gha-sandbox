@@ -38,7 +38,9 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          gcc -o gha_sb ../source/gha_sb.c -licuuc
+          pkg-config --libs --cflags icu-uc
+          gcc -o gha_sb ../source/gha_sb.c `pkg-config --libs --cflags icu-uc`
+#          gcc -o gha_sb ../source/gha_sb.c -licuuc
           echo "make: done"
       - name: test
         shell: bash
