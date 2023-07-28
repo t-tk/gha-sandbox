@@ -27,10 +27,10 @@ jobs:
           python --version
           python3 --version
           ruby --version
-      - name: brew
-        shell: bash
-        run: |
-          brew install icu4c
+#      - name: brew
+#        shell: bash
+#        run: |
+#          brew install icu4c
       - name: configure & make
         shell: bash
         run: |
@@ -38,7 +38,7 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          gcc -o gha_sb gha_sb.c -licuuc
+          gcc -o gha_sb ../source/gha_sb.c -licuuc
           echo "make: done"
       - name: test
         shell: bash
