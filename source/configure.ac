@@ -25,6 +25,7 @@ AC_CHECK_HEADERS([unicode/uversion.h unicode/utypes.h icu.h])
 #AC_CHECK_LIB(icuuc, [u_getVersion_72, u_versionToString_72])
 #AC_CHECK_LIB(icuuc, [u_getVersion_71, u_versionToString_71])
 #AC_CHECK_LIB(icuuc, [u_getVersion_70, u_versionToString_70])
+AC_SEARCH_LIBS([u_getVersion],[icuuc],[],[
 AC_SEARCH_LIBS([u_getVersion_73],[icuuc],[],[
  AC_SEARCH_LIBS([u_getVersion_72],[icuuc],[],[
   AC_SEARCH_LIBS([u_getVersion_71],[icuuc],[],[
@@ -37,6 +38,7 @@ AC_SEARCH_LIBS([u_getVersion_73],[icuuc],[],[
    ])
   ])
  ])
+])
 ])
 
 AC_CONFIG_FILES([Makefile])
