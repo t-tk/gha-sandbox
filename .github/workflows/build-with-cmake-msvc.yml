@@ -23,7 +23,6 @@ jobs:
           python --version
           python3 --version
           ruby --version
-          pkg-config --libs --cflags icu-uc icu-io
       - name: cmake & cmake --build
         shell: pwsh
         run: |
