@@ -38,10 +38,12 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
-          ls -lR /usr/local/Cellar/icu4c/73.2/include
-          ls -lR /usr/local/Cellar/icu4c/73.2/lib
-          PKG_CONFIG_PATH=/usr/local/Cellar/icu4c/73.2/lib/pkgconfig pkg-config --libs --cflags icu-uc icu-io
-          gcc -o gha_sb ../source/gha_sb.c -I/usr/local/Cellar/icu4c/73.2/include -L/usr/local/Cellar/icu4c/73.2/lib -licuio -licui18n -licuuc -licudata
+          ICU_PREFIX=`find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h\$//'`
+          echo "ICU_PREFIX: " $ICU_PREFIX
+          ls -lR $ICU_PREFIX/include
+          ls -lR $ICU_PREFIX/lib
+          PKG_CONFIG_PATH=$ICU_PREFIX/lib/pkgconfig pkg-config --libs --cflags icu-uc icu-io
+          gcc -o gha_sb ../source/gha_sb.c -I$ICU_PREFIX/include -L$ICU_PREFIX/lib -licuio -licui18n -licuuc -licudata
           ./gha_sb --version
           ./gha_sb --icuversion
           ./gha_sb
