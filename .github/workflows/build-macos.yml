@@ -52,10 +52,10 @@ jobs:
           echo "DBG003 " $ICU_PREFIX
           find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//' > icupath2.txt
           echo "DBG004"
-          ICU_PREFIX = `cat icupath2.txt`
+          ICU_PREFIX=`cat icupath2.txt`
           echo "DBG005 " $ICU_PREFIX
           # find /usr -name icudataver.h -not -path /usr/sbin | sed -e 's/\/include\/unicode\/icudataver.h//'
-          ICU_PREFIX = `find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "1: " $ICU_PREFIX
+          ICU_PREFIX=`find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h\$//'`; echo "1: " $ICU_PREFIX
           # ICU_PREFIX = `find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "2: " $ICU_PREFIX
           # ICU_PREFIX=`find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`
           echo "ICU_PREFIX: " $ICU_PREFIX
