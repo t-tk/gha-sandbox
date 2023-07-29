@@ -7,7 +7,7 @@ on:
       - 'work*'
       - 'build/*'
 jobs:
-  Build-via-autotools:
+  Build-with-mingw:
     runs-on: windows-latest
 
     steps:
@@ -75,4 +75,5 @@ jobs:
           ./gha_sb.exe --icuversion
           export bindir=. exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
+          make check
       - run: echo "⛄ This job's status is ${{ job.status }}."
