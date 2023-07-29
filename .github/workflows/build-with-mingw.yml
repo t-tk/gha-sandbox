@@ -18,12 +18,19 @@ jobs:
       - name: check version of tools
         shell: msys2 {0}
         run: |
-          bash --version
-          gcc --version
-          perl --version
+          echo haha00
+          bash.exe --version
+          echo haha01
+          gcc.exe --version
+          echo haha02
+          perl.exe --version
+          echo haha03
           python --version
+          echo haha04
           python3 --version
+          echo haha05
           ruby --version
+          echo haha06
           pkg-config --libs --cflags icu-uc icu-io
       - name: configure & make
         shell: msys2 {0}
