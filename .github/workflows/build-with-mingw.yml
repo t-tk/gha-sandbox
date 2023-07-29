@@ -24,7 +24,6 @@ jobs:
 
       - name: install tools
         uses: msys2/setup-msys2@v2
-        shell: msys2 {0}
         with:
           msystem: mingw64
           install: >-
