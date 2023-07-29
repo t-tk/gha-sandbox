@@ -67,12 +67,12 @@ jobs:
           make
           echo "make: done"
       - name: test
-        shell: bash
+        shell: msys2 {0}
         run: |
           pwd
           cd ./Work
-          ./gha_sb --version
-          ./gha_sb --icuversion
+          ./gha_sb.exe --version
+          ./gha_sb.exe --icuversion
           export bindir=. exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
       - run: echo "⛄ This job's status is ${{ job.status }}."
