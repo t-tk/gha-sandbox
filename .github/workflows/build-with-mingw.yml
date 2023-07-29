@@ -16,7 +16,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: check version of tools
-        shell: bash
+        shell: 'msys2 {0}'
+        uses: msys2/setup-msys2@v2
+        msystem: mingw64
         run: |
           bash --version
           gcc --version
@@ -26,7 +28,9 @@ jobs:
           ruby --version
           pkg-config --libs --cflags icu-uc icu-io
       - name: configure & make
-        shell: bash
+        shell: 'msys2 {0}'
+        uses: msys2/setup-msys2@v2
+        msystem: mingw64
         run: |
           pwd
           ls .
@@ -45,6 +49,4 @@ jobs:
           ./gha_sb --icuversion
           export bindir=. exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
-        env:
-          TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."
