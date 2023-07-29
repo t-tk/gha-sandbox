@@ -30,6 +30,8 @@ jobs:
             mingw-w64-x86_64-autotools
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-icu
+            mingw-w64-x86_64-python
+            mingw-w64-x86_64-pkg-config
 
       - name: echo
         shell: bash
@@ -48,9 +50,9 @@ jobs:
           echo haha03
           python --version
           echo haha04
-          python3 --version
-          echo haha05
-          ruby --version
+          # python3 --version
+          # echo haha05
+          # ruby --version
           echo haha06
           pkg-config --libs --cflags icu-uc icu-io
       - name: configure & make
