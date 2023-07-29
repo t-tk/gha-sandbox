@@ -10,24 +10,29 @@ jobs:
   Build-via-autotools:
     runs-on: windows-latest
 
-    defaults:
-      run:
-        shell: msys2 {0}
-
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v3
+
+      - name: echo
+        uses: msys2/setup-msys2@v2
+        shell: msys2 {0}
+        run: |
+          echo hihi01
+
       - name: install tools
         uses: msys2/setup-msys2@v2
+        shell: msys2 {0}
         with:
           msystem: mingw64
           install: >-
             mingw-w64-x86_64-autotools
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-icu
+
       - name: echo
         run: |
           echo hihi00
