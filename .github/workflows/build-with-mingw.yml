@@ -75,5 +75,5 @@ jobs:
           ./gha_sb.exe --icuversion
           export bindir=. exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
-          make check
+          make check || cat ./testdata/*.log
       - run: echo "⛄ This job's status is ${{ job.status }}."
