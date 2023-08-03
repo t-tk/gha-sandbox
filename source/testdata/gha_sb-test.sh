@@ -1,9 +1,9 @@
 #!/bin/sh -vx
 
-bindir=${bindir:-.}
-exeext=${exeext:-}
+BinDir=${BinDir:-.}
+ExeExt=${ExeExt:-}
 srcdir=${srcdir:-.}
-_gha_sb=$bindir/gha_sb$exeext
+_gha_sb=$BinDir/gha_sb$ExeExt
 
 rm -f ofile.txt out.txt
 

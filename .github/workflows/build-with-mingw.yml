@@ -55,6 +55,14 @@ jobs:
           # ruby --version
           echo haha06
           pkg-config --libs --cflags icu-uc icu-io
+          yacc --version || echo -e "**\n** Cannot find yacc\n**"
+          echo haha07
+          bison --version || echo -e "**\n** Cannot find bison\n**"
+          echo haha08
+          byacc --version || echo -e "**\n** Cannot find byacc\n**"
+          echo haha09
+          makeinfo --version || echo -e "**\n** Cannot find makeinfo\n**"
+          echo haha10
       - name: configure & make
         shell: msys2 {0}
         run: |
