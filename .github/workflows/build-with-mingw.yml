@@ -32,6 +32,8 @@ jobs:
             mingw-w64-x86_64-icu
             mingw-w64-x86_64-python
             mingw-w64-x86_64-pkg-config
+            bison
+            texinfo
 
       - name: echo
         shell: bash
