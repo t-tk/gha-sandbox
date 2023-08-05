@@ -27,6 +27,12 @@ jobs:
           python --version
           python3 --version
           ruby --version
+          bison --version
+          yacc --version
+          uname
+          uname -r
+          uname -a
+          which bash
       - name: configure & make
         shell: bash
         run: |
