@@ -31,9 +31,24 @@ jobs:
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-icu
             mingw-w64-x86_64-python
+            mingw-w64-x86_64-ruby
             mingw-w64-x86_64-pkg-config
             bison
             texinfo
+
+      - name: check version of tools
+        shell: bash
+        run: |
+          bash --version
+          gcc --version
+          perl --version
+          python --version
+          python3 --version
+          ruby --version
+          uname
+          uname -r
+          uname -a
+          which bash
 
       - name: echo
         shell: bash

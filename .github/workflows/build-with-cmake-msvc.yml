@@ -27,14 +27,6 @@ jobs:
           uname -r
           uname -a
           which bash
-      - name: check version of tools
-        shell: msys2 {0}
-        run: |
-          bash --version
-          uname
-          uname -r
-          uname -a
-          which bash
       - name: cmake & cmake --build
         shell: pwsh
         run: |
