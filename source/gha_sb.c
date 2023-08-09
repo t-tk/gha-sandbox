@@ -3,7 +3,11 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+
+#ifdef _MSC_VER
+#else
 #include <unistd.h>
+#endif
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
