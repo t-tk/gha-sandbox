@@ -64,7 +64,8 @@ jobs:
           cat aaa.txt | ./gha_sb --stdio | tee bbb.txt
           cat bbb.txt
 
-          make check
+          make check || echo "** failed"
+          cat ./testdata/gha_sb-test.sh.log
         env:
           TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."

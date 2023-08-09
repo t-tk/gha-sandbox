@@ -116,5 +116,8 @@ jobs:
 
           export BinDir=. ExeExt=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
-          make check || cat ./testdata/*.log
+          cat ./testdata/gha_sb-test.sh.log
+
+          make check || echo "** failed"
+          cat ./testdata/gha_sb-test.sh.log
       - run: echo "⛄ This job's status is ${{ job.status }}."

@@ -57,8 +57,9 @@ jobs:
           cat aaa.txt | ./gha_sb.exe --stdio | tee bbb.txt
           cat bbb.txt
 
-          export bindir=./Debug/bin exeext=.exe srcdir=../source
+          export BinDir=./Debug/bin ExeExt=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
+          cat ./testdata/gha_sb-test.sh.log
         env:
           TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."
