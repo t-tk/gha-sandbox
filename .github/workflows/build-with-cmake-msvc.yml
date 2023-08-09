@@ -52,8 +52,10 @@ jobs:
           cat aaa.txt | ./gha_sb.exe --stdio
           echo "stdout is redirect:"
           ./gha_sb.exe --stdio < aaa.txt > bbb.txt
+          cat bbb.txt
           echo "stdout is pipe:"
-          cat aaa.txt | ./gha_sb.exe --stdio | tee
+          cat aaa.txt | ./gha_sb.exe --stdio | tee bbb.txt
+          cat bbb.txt
 
           export bindir=./Debug/bin exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh

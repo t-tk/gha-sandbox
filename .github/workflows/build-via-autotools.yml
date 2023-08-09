@@ -59,8 +59,10 @@ jobs:
           cat aaa.txt | ./gha_sb --stdio
           echo "stdout is redirect:"
           ./gha_sb --stdio < aaa.txt > bbb.txt
+          cat bbb.txt
           echo "stdout is pipe:"
-          cat aaa.txt | ./gha_sb --stdio | tee
+          cat aaa.txt | ./gha_sb --stdio | tee bbb.txt
+          cat bbb.txt
 
           make check
         env:
