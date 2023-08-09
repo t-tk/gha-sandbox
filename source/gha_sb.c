@@ -17,6 +17,15 @@
 #include <fcntl.h>
 #endif
 
+#ifdef WIN32
+#undef stat
+#define stat _stat
+#undef fileno
+#define fileno _fileno
+#undef isatty
+#define isatty _isatty
+#endif
+
 #if defined(WIN32) && defined(WITH_SYSTEM_ICU)
 #include <icu.h>
 #else

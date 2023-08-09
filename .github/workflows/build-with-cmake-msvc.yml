@@ -59,7 +59,7 @@ jobs:
 
           export BinDir=./Debug/bin ExeExt=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
-          cat ./testdata/gha_sb-test.sh.log
+          cat ./testdata/*.log || echo ""
         env:
           TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."
