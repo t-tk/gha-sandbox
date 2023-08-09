@@ -60,6 +60,8 @@ jobs:
         run: |
           echo haha00
           bash.exe --version
+          echo haha00
+          echo $BASH_VERSION
           echo haha01
           gcc.exe --version
           echo haha02
@@ -98,6 +100,18 @@ jobs:
           cd ./Work
           ./gha_sb.exe --version
           ./gha_sb.exe --icuversion
+
+          touch aaa.txt
+          ./gha_sb.exe --stdio
+          echo "stdin is redirect:"
+          ./gha_sb.exe --stdio < aaa.txt
+          echo "stdin is pipe:"
+          cat aaa.txt | ./gha_sb.exe --stdio
+          echo "stdout is redirect:"
+          ./gha_sb.exe --stdio < aaa.txt > bbb.txt
+          echo "stdout is pipe:"
+          cat aaa.txt | ./gha_sb.exe --stdio | tee
+
           export BinDir=. ExeExt=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
           make check || cat ./testdata/*.log

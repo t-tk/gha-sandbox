@@ -43,6 +43,18 @@ jobs:
           cd ./Work
           ./gha_sb.exe --version
           ./gha_sb.exe --icuversion
+
+          touch aaa.txt
+          ./gha_sb.exe --stdio
+          echo "stdin is redirect:"
+          ./gha_sb.exe --stdio < aaa.txt
+          echo "stdin is pipe:"
+          cat aaa.txt | ./gha_sb.exe --stdio
+          echo "stdout is redirect:"
+          ./gha_sb.exe --stdio < aaa.txt > bbb.txt
+          echo "stdout is pipe:"
+          cat aaa.txt | ./gha_sb.exe --stdio | tee
+
           export bindir=./Debug/bin exeext=.exe srcdir=../source
           $srcdir/testdata/gha_sb-test.sh
         env:

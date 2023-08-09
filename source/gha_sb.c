@@ -73,6 +73,13 @@ int main(int argc, char **argv){
     return 0;
   }
 
+  if (argc==2 && strcmp(argv[1],"--stdio")==0) {
+    struct stat sti, sto;
+    int fdi = fileno(stdin), fdo = fileno(stdout);
+    printf("STDIN  : %d %d %d\n", isatty(fdi), fstat(fdi, &sti), S_ISFIFO(sti.st_mode));
+    printf("STDOUT : %d %d %d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode));
+  }
+
   if (argc>1) {
     name = argv[1];
     fp = fopen(name, WRITE_MODE);

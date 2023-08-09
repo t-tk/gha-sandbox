@@ -50,6 +50,18 @@ jobs:
           cd ./Work
           ./gha_sb --version
           ./gha_sb --icuversion
+
+          touch aaa.txt
+          ./gha_sb --stdio
+          echo "stdin is redirect:"
+          ./gha_sb --stdio < aaa.txt
+          echo "stdin is pipe:"
+          cat aaa.txt | ./gha_sb --stdio
+          echo "stdout is redirect:"
+          ./gha_sb --stdio < aaa.txt > bbb.txt
+          echo "stdout is pipe:"
+          cat aaa.txt | ./gha_sb --stdio | tee
+
           make check
         env:
           TESTENV: "foo:bar; baz"
