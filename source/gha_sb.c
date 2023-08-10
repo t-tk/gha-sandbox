@@ -97,8 +97,13 @@ int main(int argc, char **argv){
     struct stat sti, sto;
     int fdi = fileno(stdin), fdo = fileno(stdout);
     printf("ARGC   : %d %s\n", argc, argv[0]);
+#ifdef _MSC_VER
+    printf("STDIN  : %d %d\n", isatty(fdi), fstat(fdi, &sti));
+    printf("STDOUT : %d %d\n", isatty(fdo), fstat(fdo, &sto));
+#else
     printf("STDIN  : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdi), fstat(fdi, &sti), S_ISFIFO(sti.st_mode), S_ISREG(sti.st_mode), S_ISCHR(sti.st_mode));
     printf("STDOUT : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode), S_ISREG(sto.st_mode), S_ISCHR(sto.st_mode));
+#endif
   }
 
   if (argc>1) {
