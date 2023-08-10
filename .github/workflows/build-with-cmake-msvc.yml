@@ -41,20 +41,20 @@ jobs:
         run: |
           pwd
           cd ./Work
-          ./gha_sb.exe --version
-          ./gha_sb.exe --icuversion
+          ./Debug/bin/gha_sb.exe --version
+          ./Debug/bin/gha_sb.exe --icuversion
 
           touch aaa.txt
-          ./gha_sb.exe --stdio
+          ./Debug/bin/gha_sb.exe --stdio
           echo "stdin is redirect:"
-          ./gha_sb.exe --stdio < aaa.txt
+          ./Debug/bin/gha_sb.exe --stdio < aaa.txt
           echo "stdin is pipe:"
-          cat aaa.txt | ./gha_sb.exe --stdio
+          cat aaa.txt | ./Debug/bin/gha_sb.exe --stdio
           echo "stdout is redirect:"
-          ./gha_sb.exe --stdio < aaa.txt > bbb.txt
+          ./Debug/bin/gha_sb.exe --stdio < aaa.txt > bbb.txt
           cat bbb.txt
           echo "stdout is pipe:"
-          cat aaa.txt | ./gha_sb.exe --stdio | tee bbb.txt
+          cat aaa.txt | ./Debug/bin/gha_sb.exe --stdio | tee bbb.txt
           cat bbb.txt
 
           export BinDir=./Debug/bin ExeExt=.exe srcdir=../source
