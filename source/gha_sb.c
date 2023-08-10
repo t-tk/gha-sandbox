@@ -77,6 +77,9 @@ int main(int argc, char **argv){
     return 0;
   }
 
+#ifdef _MSC_VER
+#else
+
   if (argc>1 && strcmp(argv[1],"--printenv")==0) {
     char *var = getenv("TESTENV");
     printf("env TESTENV: %s\n", var ? var : "()");
@@ -107,6 +110,8 @@ int main(int argc, char **argv){
     printf("STDOUT : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode), S_ISREG(sto.st_mode), S_ISCHR(sto.st_mode));
 #endif
   }
+
+#endif
 
   if (argc>1) {
     name = argv[1];
