@@ -84,6 +84,8 @@ int main(int argc, char **argv){
     return 0;
   }
 
+#ifdef _MSC_VER
+#else
   if (argc>1 && strcmp(argv[1],"--icuversion")==0) {
     UVersionInfo icuVersion;
     char icu_version[U_MAX_VERSION_STRING_LENGTH] = "";
@@ -92,6 +94,7 @@ int main(int argc, char **argv){
     printf("Compiled with:  ICU version %s\n", icu_version);
     return 0;
   }
+#endif
 
   if (argc==2 && strcmp(argv[1],"--stdio")==0) {
     struct stat sti, sto;

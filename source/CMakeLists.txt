@@ -13,7 +13,7 @@ set(gha_sandbox_SRCS
 
 add_executable(gha_sb ${gha_sandbox_SRCS})
 target_compile_definitions(gha_sb PRIVATE -DHAVE_CONFIG_H -DWITH_SYSTEM_ICU)
-target_link_libraries(gha_sb icu)
+#target_link_libraries(gha_sb icu)
 target_include_directories(gha_sb
   PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}"
   PRIVATE "${CMAKE_CURRENT_BINARY_DIR}"
