@@ -29,7 +29,8 @@
 #define isatty _isatty
 #endif
 
-#if defined(WIN32)
+#if defined(WIN32) && defined(WITH_SYSTEM_ICU)
+#include <icu.h>
 #else
 #include <unicode/uversion.h>
 #include <unicode/utypes.h>
@@ -77,17 +78,12 @@ int main(int argc, char **argv){
     return 0;
   }
 
-#ifdef _MSC_VER
-#else
-
   if (argc>1 && strcmp(argv[1],"--printenv")==0) {
     char *var = getenv("TESTENV");
     printf("env TESTENV: %s\n", var ? var : "()");
     return 0;
   }
 
-#ifdef _MSC_VER
-#else
   if (argc>1 && strcmp(argv[1],"--icuversion")==0) {
     UVersionInfo icuVersion;
     char icu_version[U_MAX_VERSION_STRING_LENGTH] = "";
@@ -96,7 +92,6 @@ int main(int argc, char **argv){
     printf("Compiled with:  ICU version %s\n", icu_version);
     return 0;
   }
-#endif
 
   if (argc==2 && strcmp(argv[1],"--stdio")==0) {
     struct stat sti, sto;
@@ -110,8 +105,6 @@ int main(int argc, char **argv){
     printf("STDOUT : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode), S_ISREG(sto.st_mode), S_ISCHR(sto.st_mode));
 #endif
   }
-
-#endif
 
   if (argc>1) {
     name = argv[1];
