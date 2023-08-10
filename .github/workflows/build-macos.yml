@@ -83,7 +83,22 @@ jobs:
           cd ./Work
           ./gha_sb --version
           ./gha_sb --icuversion
-          make check
+
+          touch aaa.txt
+          ./gha_sb --stdio
+          echo "stdin is redirect:"
+          ./gha_sb --stdio < aaa.txt
+          echo "stdin is pipe:"
+          cat aaa.txt | ./gha_sb --stdio
+          echo "stdout is redirect:"
+          ./gha_sb --stdio < aaa.txt > bbb.txt
+          cat bbb.txt
+          echo "stdout is pipe:"
+          cat aaa.txt | ./gha_sb --stdio | tee bbb.txt
+          cat bbb.txt
+
+          make check || echo "** failed"
+          cat ./testdata/*.log || echo ""
         env:
           TESTENV: "foo:bar; baz"
       - run: echo "⛄ This job's status is ${{ job.status }}."

@@ -18,8 +18,11 @@
 #endif
 
 #ifdef WIN32
+#ifdef _MSC_VER
+#else
 #undef stat
 #define stat _stat
+#endif
 #undef fileno
 #define fileno _fileno
 #undef isatty
