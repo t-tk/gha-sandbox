@@ -93,8 +93,9 @@ int main(int argc, char **argv){
   if (argc==2 && strcmp(argv[1],"--stdio")==0) {
     struct stat sti, sto;
     int fdi = fileno(stdin), fdo = fileno(stdout);
-    printf("STDIN  : %d %d %d\n", isatty(fdi), fstat(fdi, &sti), S_ISFIFO(sti.st_mode));
-    printf("STDOUT : %d %d %d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode));
+    printf("ARGC   : %d %s\n", argc, argv[0]);
+    printf("STDIN  : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdi), fstat(fdi, &sti), S_ISFIFO(sti.st_mode), S_ISREG(sti.st_mode), S_ISCHR(sti.st_mode));
+    printf("STDOUT : %d %d fifo:%d reg:%d chr:%d\n", isatty(fdo), fstat(fdo, &sto), S_ISFIFO(sto.st_mode), S_ISREG(sto.st_mode), S_ISCHR(sto.st_mode));
   }
 
   if (argc>1) {
