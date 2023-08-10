@@ -29,8 +29,7 @@
 #define isatty _isatty
 #endif
 
-#if defined(WIN32) && defined(WITH_SYSTEM_ICU)
-#include <icu.h>
+#if defined(WIN32)
 #else
 #include <unicode/uversion.h>
 #include <unicode/utypes.h>
