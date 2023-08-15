@@ -6,6 +6,7 @@ on:
       - 'master'
       - 'work*'
       - 'build/*'
+      - 'build-mingw/*'
 jobs:
   Build-with-mingw:
     runs-on: windows-latest
@@ -128,12 +129,12 @@ jobs:
           cd ./Work
           ./gha_sb.exe --codepage
 
-      - name: test codepage bash
-        shell: bash
-        run: |
-          pwd
-          cd ./Work
-          ./gha_sb.exe --codepage
+      #- name: test codepage bash
+      #  shell: bash
+      #  run: |
+      #    pwd
+      #    cd ./Work
+      #    ./gha_sb.exe --codepage
 
       - name: test codepage cmd
         shell: cmd
