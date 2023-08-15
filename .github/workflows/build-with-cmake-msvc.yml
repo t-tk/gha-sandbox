@@ -62,4 +62,55 @@ jobs:
           cat ./testdata/*.log || echo ""
         env:
           TESTENV: "foo:bar; baz"
+
+      - name: test codepage msys2
+        shell: msys2 {0}
+        run: |
+          pwd
+          cd ./Work
+          ./gha_sb.exe --codepage
+
+      - name: test codepage bash
+        shell: bash
+        run: |
+          pwd
+          cd ./Work
+          ./gha_sb.exe --codepage
+
+      - name: test codepage cmd
+        shell: cmd
+        run: |
+          chcp
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
+          chcp 932
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
+          chcp 65001
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
+      - name: test codepage powershell
+        shell: pwsh
+        run: |
+          chcp
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
+          chcp 932
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
+          chcp 65001
+          cd .\Work
+          .\gha_sb.exe --codepage
+          bash .\gha_sb.exe --codepage
+
       - run: echo "⛄ This job's status is ${{ job.status }}."

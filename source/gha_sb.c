@@ -15,6 +15,9 @@
 #endif
 #ifdef WIN32
 #include <fcntl.h>
+
+#include <fileapi.h>
+#include <winnls.h>
 #endif
 
 #ifdef WIN32
@@ -92,6 +95,13 @@ int main(int argc, char **argv){
     printf("Compiled with:  ICU version %s\n", icu_version);
     return 0;
   }
+
+#ifdef WIN32
+  if (argc>1 && strcmp(argv[1],"--codepage")==0) {
+    printf("AreFileApisANSI: %d, ACP: %d, OEMCP: %d\n", AreFileApisANSI(), GetACP(), GetOEMCP());
+    return 0;
+  }
+#endif
 
   if (argc==2 && strcmp(argv[1],"--stdio")==0) {
     struct stat sti, sto;
