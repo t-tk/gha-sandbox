@@ -144,19 +144,20 @@ jobs:
         run: |
           pwd
           dir
+          dir .
+          dir D:\a\gha-sandbox\gha-sandbox
+          dir D:\a\gha-sandbox\gha-sandbox\Work
+          cd .\Work
 
           chcp
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
           chcp 932
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
           chcp 65001
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
@@ -164,20 +165,20 @@ jobs:
         shell: cmd
         run: |
           @cd
-          dir
+          dir .
+          dir D:\a\gha-sandbox\gha-sandbox
+          dir D:\a\gha-sandbox\gha-sandbox\Work
+          cd .\Work
 
           chcp
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
           chcp 932
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
           chcp 65001
-          cd .\Work
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
