@@ -90,6 +90,7 @@ jobs:
           ls .
           mkdir ./Work
           cd ./Work
+          pwd
           ../source/configure
           cat config.log
           make
@@ -126,6 +127,8 @@ jobs:
         shell: msys2 {0}
         run: |
           pwd
+          ls -lR
+
           cd ./Work
           ./gha_sb.exe --codepage
 
@@ -136,9 +139,12 @@ jobs:
       #    cd ./Work
       #    ./gha_sb.exe --codepage
 
-      - name: test codepage cmd
-        shell: cmd
+      - name: test codepage powershell
+        shell: pwsh
         run: |
+          pwd
+          dir
+
           chcp
           cd .\Work
           .\gha_sb.exe --codepage
@@ -154,9 +160,12 @@ jobs:
           .\gha_sb.exe --codepage
           bash .\gha_sb.exe --codepage
 
-      - name: test codepage powershell
-        shell: pwsh
+      - name: test codepage cmd
+        shell: cmd
         run: |
+          @cd
+          dir
+
           chcp
           cd .\Work
           .\gha_sb.exe --codepage
