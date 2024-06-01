@@ -47,7 +47,16 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           find /usr/local -name icudataver.h
           echo "DBG100"
-          find /usr -name icudataver.h -not -path '/usr/sbin/*'
+          find /usr/include -name icudataver.h 2> /dev/null
+          find /usr/include -name icudataver.h
+          echo "DBG101"
+          find /usr/share -name icudataver.h 2> /dev/null
+          find /usr/share -name icudataver.h
+          echo "DBG102"
+          find /usr/opt -name icudataver.h 2> /dev/null
+          find /usr/opt -name icudataver.h
+          echo "DBG103"
+          # find /usr -name icudataver.h -not -path '/usr/sbin/*'
           # find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
           echo "DBG200"
           find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
