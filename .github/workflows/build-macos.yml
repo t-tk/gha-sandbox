@@ -50,9 +50,9 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           #find /usr/local -name icudataver.h
           echo "DBG100"
-          find /usr/opt -name icudataver.h 2> /dev/null
+          #find /usr/opt -name icudataver.h 2> /dev/null
           #find /usr/opt -name icudataver.h
-          echo "DBG201"
+          #echo "DBG201"
           find /opt/homebrew/Cellar -name icudataver.h > ./icupath.txt
           echo "DBG001"
           sed -e 's/\/include\/unicode\/icudataver.h//' ./icupath.txt > icupath1.txt
