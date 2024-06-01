@@ -49,30 +49,31 @@ jobs:
           cd ./Work
           find /usr/local -name icudataver.h 2> /dev/null
           #find /usr/local -name icudataver.h
-#          echo "DBG100"
-#          ls /usr/*/*/*/*/icudataver.h || echo "ha"
-#          echo "DBG1000"
-#          ls /usr/*/*/*/icudataver.h || echo "ha"
-#          echo "DBG1001"
-#          ls /usr/*/*/icudataver.h || echo "ha"
-#          echo "DBG1002"
-#          find /usr/local/opt -name icudataver.h 2> /dev/null
-#          #find /usr/local/opt -name icudataver.h
-#          echo "DBG104"
-          find /opt/homebrew -name icudataver.h 2> /dev/null
-#          echo "DBG101"
-#          find /usr/share -name icudataver.h 2> /dev/null
-#          #find /usr/share -name icudataver.h
-#          echo "DBG102"
-#          find /usr/opt -name icudataver.h 2> /dev/null
-#          #find /usr/opt -name icudataver.h
-#          echo "DBG103"
-#          # find /usr -name icudataver.h -not -path '/usr/sbin/*'
-#          # find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
-#          echo "DBG200"
-#          find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
-#          find /usr -name icudataver.h -not -path '/usr/sbin/*' > ./icupath.txt
-#          cat ./icupath.txt
+          echo "DBG100"
+          ls /usr/*/*/*/*/icudataver.h || echo "ha"
+          echo "DBG1000"
+          ls /usr/*/*/*/icudataver.h || echo "ha"
+          echo "DBG1001"
+          ls /usr/*/*/icudataver.h || echo "ha"
+          echo "DBG1002"
+          find /usr/local/opt -name icudataver.h 2> /dev/null
+          #find /usr/local/opt -name icudataver.h
+          echo "DBG104"
+          find /usr/include -name icudataver.h 2> /dev/null
+          #find /usr/include -name icudataver.h
+          echo "DBG101"
+          find /usr/share -name icudataver.h 2> /dev/null
+          #find /usr/share -name icudataver.h
+          echo "DBG102"
+          find /usr/opt -name icudataver.h 2> /dev/null
+          #find /usr/opt -name icudataver.h
+          echo "DBG103"
+          # find /usr -name icudataver.h -not -path '/usr/sbin/*'
+          # find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
+          echo "DBG200"
+          find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
+          find /usr -name icudataver.h -not -path '/usr/sbin/*' > ./icupath.txt
+          cat ./icupath.txt
           echo "DBG201"
           find /opt/homebrew/Cellar -name icudataver.h > ./icupath.txt
           echo "DBG001"
