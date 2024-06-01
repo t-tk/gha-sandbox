@@ -47,9 +47,11 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           find /usr/local -name icudataver.h
           echo "DBG100"
-          # find /usr -name icudataver.h -not -path /usr/sbin
-          # find /usr -name icudataver.h 2> /dev/null
-          # echo "DBG000"
+          find /usr -name icudataver.h -not -path /usr/sbin
+          find /usr -name icudataver.h 2> /dev/null
+          echo "DBG200"
+          find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
+          echo "DBG201"
           find /usr/local/Cellar -name icudataver.h > ./icupath.txt
           echo "DBG001"
           sed -e 's/\/include\/unicode\/icudataver.h//' ./icupath.txt > icupath1.txt
