@@ -53,18 +53,18 @@ jobs:
           #find /usr/opt -name icudataver.h 2> /dev/null
           #find /usr/opt -name icudataver.h
           #echo "DBG201"
-          find /opt/homebrew/Cellar -name icudataver.h > ./icupath.txt
+          find /opt/homebrew/opt -name icudataver.h > ./icupath.txt
           echo "DBG001"
           sed -e 's/\/include\/unicode\/icudataver.h//' ./icupath.txt > icupath1.txt
           echo "DBG002"
           ICU_PREFIX=`cat icupath1.txt`
           echo "DBG003 " $ICU_PREFIX
-          find /opt/homebrew/Cellar -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//' > icupath2.txt
+          find /opt/homebrew/opt -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//' > icupath2.txt
           echo "DBG004"
           ICU_PREFIX=`cat icupath2.txt`
           echo "DBG005 " $ICU_PREFIX
           # find /usr -name icudataver.h -not -path '/usr/sbin/*' | sed -e 's/\/include\/unicode\/icudataver.h//'
-          ICU_PREFIX=`find /opt/homebrew/Cellar -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h\$//'`; echo "1: " $ICU_PREFIX
+          ICU_PREFIX=`find /opt/homebrew/opt -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h\$//'`; echo "1: " $ICU_PREFIX
           # ICU_PREFIX = `find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "2: " $ICU_PREFIX
           # ICU_PREFIX=`find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`
           echo "ICU_PREFIX: " $ICU_PREFIX
@@ -75,7 +75,7 @@ jobs:
           ./gha_sb --version
           ./gha_sb --icuversion
           ./gha_sb
-          ../source/configure CFLAGS=-I/opt/homebrew/Cellar/icu4c/74.2/include LDFLAGS=-L/opt/homebrew/Cellar/icu4c/74.2/lib
+          ../source/configure CFLAGS=-I/opt/homebrew/opt/icu4c/74.2/include LDFLAGS=-L/opt/homebrew/opt/icu4c/74.2/lib
           make
           echo "make: done"
 #          gcc -o gha_sb ../source/gha_sb.c
