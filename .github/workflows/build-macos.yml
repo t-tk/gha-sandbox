@@ -51,6 +51,8 @@ jobs:
           find /usr -name icudataver.h 2> /dev/null
           echo "DBG200"
           find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
+          find /usr -name icudataver.h -not -path /usr/sbin > ./icupath.txt
+          cat ./icupath.txt
           echo "DBG201"
           find /usr/local/Cellar -name icudataver.h > ./icupath.txt
           echo "DBG001"
