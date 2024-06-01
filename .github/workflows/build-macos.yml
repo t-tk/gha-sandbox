@@ -47,11 +47,11 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           #find /usr/local -name icudataver.h
           echo "DBG100"
-          ls /usr/*/*/*/*/icudataver.h
+          ls /usr/*/*/*/*/icudataver.h || echo "ha"
           echo "DBG1000"
-          ls /usr/*/*/*/icudataver.h
+          ls /usr/*/*/*/icudataver.h || echo "ha"
           echo "DBG1001"
-          ls /usr/*/*/icudataver.h
+          ls /usr/*/*/icudataver.h || echo "ha"
           echo "DBG1002"
           find /usr/local/opt -name icudataver.h 2> /dev/null
           #find /usr/local/opt -name icudataver.h
