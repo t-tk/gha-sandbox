@@ -48,7 +48,7 @@ jobs:
           find /usr/local -name icudataver.h
           echo "DBG100"
           find /usr -name icudataver.h -not -path /usr/sbin
-          find /usr -name icudataver.h 2> /dev/null
+          # find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
           echo "DBG200"
           find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
           find /usr -name icudataver.h -not -path /usr/sbin > ./icupath.txt
