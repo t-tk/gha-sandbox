@@ -47,11 +47,11 @@ jobs:
           find /usr/local -name icudataver.h 2> /dev/null
           find /usr/local -name icudataver.h
           echo "DBG100"
-          find /usr -name icudataver.h -not -path /usr/sbin
-          # find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
+          find /usr -name icudataver.h -not -path '/usr/sbin/*'
+          # find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
           echo "DBG200"
-          find /usr -name icudataver.h -not -path /usr/sbin 2> /dev/null
-          find /usr -name icudataver.h -not -path /usr/sbin > ./icupath.txt
+          find /usr -name icudataver.h -not -path '/usr/sbin/*' 2> /dev/null
+          find /usr -name icudataver.h -not -path '/usr/sbin/*' > ./icupath.txt
           cat ./icupath.txt
           echo "DBG201"
           find /usr/local/Cellar -name icudataver.h > ./icupath.txt
@@ -64,7 +64,7 @@ jobs:
           echo "DBG004"
           ICU_PREFIX=`cat icupath2.txt`
           echo "DBG005 " $ICU_PREFIX
-          # find /usr -name icudataver.h -not -path /usr/sbin | sed -e 's/\/include\/unicode\/icudataver.h//'
+          # find /usr -name icudataver.h -not -path '/usr/sbin/*' | sed -e 's/\/include\/unicode\/icudataver.h//'
           ICU_PREFIX=`find /usr/local/Cellar -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h\$//'`; echo "1: " $ICU_PREFIX
           # ICU_PREFIX = `find /usr -name icudataver.h 2> /dev/null | sed -e 's/\/include\/unicode\/icudataver.h//'`; echo "2: " $ICU_PREFIX
           # ICU_PREFIX=`find /usr/local -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h//'`
