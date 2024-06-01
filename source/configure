@@ -4423,7 +4423,74 @@ then :
 
 else case e in #(
   e)
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_73" >&5
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_74" >&5
+printf %s "checking for library containing u_getVersion_74... " >&6; }
+if test ${ac_cv_search_u_getVersion_74+y}
+then :
+  printf %s "(cached) " >&6
+else case e in #(
+  e) ac_func_search_save_LIBS=$LIBS
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.
+   The 'extern "C"' is for builds by C++ compilers;
+   although this is not generally supported in C code supporting it here
+   has little cost and some practical benefit (sr 110532).  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char u_getVersion_74 (void);
+int
+main (void)
+{
+return u_getVersion_74 ();
+  ;
+  return 0;
+}
+_ACEOF
+for ac_lib in '' icuuc
+do
+  if test -z "$ac_lib"; then
+    ac_res="none required"
+  else
+    ac_res=-l$ac_lib
+    LIBS="-l$ac_lib  $ac_func_search_save_LIBS"
+  fi
+  if ac_fn_c_try_link "$LINENO"
+then :
+  ac_cv_search_u_getVersion_74=$ac_res
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext
+  if test ${ac_cv_search_u_getVersion_74+y}
+then :
+  break
+fi
+done
+if test ${ac_cv_search_u_getVersion_74+y}
+then :
+
+else case e in #(
+  e) ac_cv_search_u_getVersion_74=no ;;
+esac
+fi
+rm conftest.$ac_ext
+LIBS=$ac_func_search_save_LIBS ;;
+esac
+fi
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_search_u_getVersion_74" >&5
+printf "%s\n" "$ac_cv_search_u_getVersion_74" >&6; }
+ac_res=$ac_cv_search_u_getVersion_74
+if test "$ac_res" != no
+then :
+  test "$ac_res" = "none required" || LIBS="$ac_res $LIBS"
+
+else case e in #(
+  e)
+ { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_73" >&5
 printf %s "checking for library containing u_getVersion_73... " >&6; }
 if test ${ac_cv_search_u_getVersion_73+y}
 then :
@@ -4490,7 +4557,7 @@ then :
 
 else case e in #(
   e)
- { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_72" >&5
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_72" >&5
 printf %s "checking for library containing u_getVersion_72... " >&6; }
 if test ${ac_cv_search_u_getVersion_72+y}
 then :
@@ -4557,7 +4624,7 @@ then :
 
 else case e in #(
   e)
-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_71" >&5
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_71" >&5
 printf %s "checking for library containing u_getVersion_71... " >&6; }
 if test ${ac_cv_search_u_getVersion_71+y}
 then :
@@ -4624,7 +4691,7 @@ then :
 
 else case e in #(
   e)
-   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_70" >&5
+    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_70" >&5
 printf %s "checking for library containing u_getVersion_70... " >&6; }
 if test ${ac_cv_search_u_getVersion_70+y}
 then :
@@ -4691,7 +4758,7 @@ then :
 
 else case e in #(
   e)
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
+     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
 printf %s "checking for library containing u_getVersion_69... " >&6; }
 if test ${ac_cv_search_u_getVersion_69+y}
 then :
@@ -4758,7 +4825,7 @@ then :
 
 else case e in #(
   e)
-     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
+      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for library containing u_getVersion_69" >&5
 printf %s "checking for library containing u_getVersion_69... " >&6; }
 if test ${ac_cv_search_u_getVersion_69+y}
 then :
@@ -4825,7 +4892,11 @@ then :
 
 else case e in #(
   e)
-      as_fn_error $? "Unable to find icuuc, make sure ICU is installed." "$LINENO" 5
+       as_fn_error $? "Unable to find icuuc, make sure ICU is installed." "$LINENO" 5
+       ;;
+esac
+fi
+
       ;;
 esac
 fi
