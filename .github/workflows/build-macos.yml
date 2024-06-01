@@ -37,7 +37,8 @@ jobs:
       - name: brew
         shell: bash
         run: |
-          brew install icu4c
+          #brew install icu4c
+          brew info icu4c
 
       - name: configure & make
         shell: bash
