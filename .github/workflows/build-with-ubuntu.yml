@@ -30,7 +30,8 @@ jobs:
       - name: apt
         shell: bash
         run: |
-          apt-get install texlive-binaries texlive-fonts-recommended texlive-fonts-extra texlive-lang-japanese
+          sudo apt-get update
+          sudo apt-get install texlive-binaries texlive-fonts-recommended texlive-fonts-extra texlive-lang-japanese
           kpsewhich lmroman10-regular.otf
           kpsewhich HaranoAjiMincho-Regular.otf
           kpsewhich HaranoAjiGothic-Normal.otf
