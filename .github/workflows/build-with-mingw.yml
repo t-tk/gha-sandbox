@@ -13,9 +13,11 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: configure & make
-        shell: bash
+        shell: 'msys2 {0}'
+        uses: msys2/setup-msys2@v2
+        msystem: mingw64
         run: |
           pwd
           ls .
