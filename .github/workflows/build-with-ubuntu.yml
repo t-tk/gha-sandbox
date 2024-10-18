@@ -1,0 +1,37 @@
+name: Build with ubuntu
+run-name: ${{ github.actor }} is building and testing with ubuntu
+on:
+  push:
+    branches:
+      - 'master'
+      - 'work*'
+jobs:
+  Build-via-autotools:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: configure & make
+        shell: bash
+        run: |
+          pwd
+          ls .
+          mkdir ./Work
+          cd ./Work
+          ../source/configure
+          make
+          echo "make: done"
+          make check
+      - run: echo "⛄ This job's status is ${{ job.status }}."
+
+      - name: apt
+        shell: bash
+        run: |
+          apt-get install texlive-binaries texlive-fonts-recommended texlive-fonts-extra texlive-lang-japanese
+          kpsewhich lmroman10-regular.otf
+          kpsewhich HaranoAjiMincho-Regular.otf
+          kpsewhich HaranoAjiGothic-Normal.otf
+
