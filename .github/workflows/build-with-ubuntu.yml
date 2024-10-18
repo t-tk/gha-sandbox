@@ -6,7 +6,7 @@ on:
       - 'master'
       - 'work*'
 jobs:
-  Build-via-autotools:
+  Build-with-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -35,4 +35,6 @@ jobs:
           kpsewhich lmroman10-regular.otf
           kpsewhich HaranoAjiMincho-Regular.otf
           kpsewhich HaranoAjiGothic-Normal.otf
+          kpsewhich -show-path='opentype fonts'
+
 
