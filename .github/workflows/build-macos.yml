@@ -39,7 +39,7 @@ jobs:
         run: |
           #brew install icu4c
           brew info icu4c
-          brew list icu4c --versions
+          #brew list icu4c --versions
 
       - name: configure & make
         shell: bash
