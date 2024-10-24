@@ -26,21 +26,23 @@ AC_CHECK_HEADERS([unicode/uversion.h unicode/utypes.h icu.h])
 #AC_CHECK_LIB(icuuc, [u_getVersion_71, u_versionToString_71])
 #AC_CHECK_LIB(icuuc, [u_getVersion_70, u_versionToString_70])
 AC_SEARCH_LIBS([_u_getVersion],[icuuc],[],[
-AC_SEARCH_LIBS([u_getVersion_74],[icuuc],[],[
+ AC_SEARCH_LIBS([u_getVersion_75],[icuuc],[],[
+ AC_SEARCH_LIBS([u_getVersion_74],[icuuc],[],[
  AC_SEARCH_LIBS([u_getVersion_73],[icuuc],[],[
-  AC_SEARCH_LIBS([u_getVersion_72],[icuuc],[],[
-   AC_SEARCH_LIBS([u_getVersion_71],[icuuc],[],[
-    AC_SEARCH_LIBS([u_getVersion_70],[icuuc],[],[
-     AC_SEARCH_LIBS([u_getVersion_69],[icuuc],[],[
-      AC_SEARCH_LIBS([u_getVersion_69],[icu],[],[
-       AC_MSG_ERROR([Unable to find icuuc, make sure ICU is installed.])
-      ])
-     ])
-    ])
-   ])
+ AC_SEARCH_LIBS([u_getVersion_72],[icuuc],[],[
+ AC_SEARCH_LIBS([u_getVersion_71],[icuuc],[],[
+ AC_SEARCH_LIBS([u_getVersion_70],[icuuc],[],[
+ AC_SEARCH_LIBS([u_getVersion_69],[icuuc],[],[
+  AC_SEARCH_LIBS([u_getVersion_69],[icu],[],[
+  AC_MSG_ERROR([Unable to find icuuc, make sure ICU is installed.])
   ])
  ])
-])
+ ])
+ ])
+ ])
+ ])
+ ])
+ ])
 ])
 
 AC_CONFIG_FILES([Makefile])
